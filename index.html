@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<!-- <script type="text/javascript">
+    var alphabet = "abcdefghijklmnopqrstuvwxyz";
+    var fullAlphabet = alphabet + alphabet + alphabet;
+    var i;
+    function Cipher() {
+        var cipherText = $('#cypher').val();
+        var len = cipherText.length;
+        var cipher1 = '';
+
+        for (i > (len - 1); i >= 0; i--) {
+            cipher1 += cipherText.charAt(i);
+        }
+        var cipherkey = $('#key').val();
+        cipherkey = (cipherkey % alphabet.length);
+
+        ////
+
+        function rot(text, i) {
+            return text.replace(/[a-zA-Z]/g, function (c) {
+                return String.fromCharCode((c <= 'Z' ? 90 : 122) >= (c = c.charCodeAt(0) + i) ? c : c - 26);
+            });
+        }
+        var cipher2 = '';
+        cipher2 = rot(cipher1, 13);
+        ////
+        var finalCipher = '';
+        for (i = 0; i < cipher2.length; i++) {
+            var letter = cipher2[i];
+            var upper = (letter == letter.toUpperCase());
+            letter = letter.toLowerCase();
+
+            var index = alphabet.indexOf(letter);
+            if (index == -1) {
+                cipher2 += letter;
+            } else {
+                index = ((index + cipherkey) + alphabet.length);
+                var nextLetter = fullAlphabet[index];
+                if (upper)
+                    nextLetter = nextLetter.toUpperCase();
+                finalCipher += nextLetter;
+            }
+
+        }
+
+
+        $('#finish').val(finalCipher);
+    }
+
+    function decrypt() {
+
+        var cipherText = $('#finish').val();
+        var len = cipherText.length;
+        var cipher1 = '';
+
+        for (i > (len - 1); i >= 0; i--) {
+            cipher1 += cipherText.charAt(i);
+        }
+        var cipherkey = $('#key').val();
+        cipherkey = (cipherkey % alphabet.length);
+
+        ////
+
+        function rot(text, i) {
+            return text.replace(/[a-zA-Z]/g, function (c) {
+                return String.fromCharCode((c <= 'Z' ? 90 : 122) >= (c = c.charCodeAt(0) + i) ? c : c - 26);
+            });
+        }
+        var cipher2 = '';
+        cipher2 = rot(cipher1, +13);
+        ////
+        var finalCipher = '';
+        for (i = 0; i < cipher2.length; i++) {
+            var letter = cipher2[i];
+            var upper = (letter == letter.toUpperCase());
+            letter = letter.toLowerCase();
+
+            var index = alphabet.indexOf(letter);
+            if (index == -1) {
+                cipher2 += letter;
+            } else {
+                index = ((index - cipherkey) + alphabet.length);
+                var nextLetter = fullAlphabet[index];
+                if (upper)
+                    nextLetter = nextLetter.toUpperCase();
+                finalCipher += nextLetter;
+            }
+
+        }
+
+
+        $('#dec').val(finalCipher);
+
+
+
+
+    }
+
+
+</script> -->
+
+<body>
+    <div id="container">
+        <div class="speech">Enter Text</div>
+        <div class="input">
+            <form id="form">
+                Text:
+                <input type="text" id="cypher" />
+                <br>
+                <br>
+                Offset:
+                <input type="number" value="4" id="key" />
+                <br />
+                <br />
+                Finish:
+                <input type="text" id="finish" />
+                <br><br>
+
+                Decrypt:
+                <input type="text" id="dec" />
+                <input type="button" value="Run" onclick="encrypt()" />
+                <input type="button" value="Decrypt" onclick="decrypt()" />
+                <br />
+
+
+                <br />
+                <br />
+                <br />
+
+            </form>
+        </div>
+    </div>
+<script src="./cipher.js">
+</script>
+</body>
+
+</html>
